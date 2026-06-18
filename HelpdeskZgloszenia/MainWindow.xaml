@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:HelpdeskZgloszenia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="HelpDesk"
-    Width="850"
-    Height="650"
+    Width="1200"
+    Height="800"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen">
     <Grid>

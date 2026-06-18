@@ -19,14 +19,14 @@ namespace HelpdeskWebAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto daneLogowania)
         {
-            var pracownik = await _context.Pracownicy.FirstOrDefaultAsync(p=>p.Login == daneLogowania.Login);
+            var pracownik = await _context.Workers.FirstOrDefaultAsync(p=>p.Login == daneLogowania.Login);
 
             if(pracownik == null)
             {
                 return Unauthorized("Nieprawidłowy login lub hasło");
             }
 
-            if(pracownik.Haslo != daneLogowania.Haslo)
+            if(pracownik.Password != daneLogowania.Haslo)
             {
                 return Unauthorized("Nieprawidłowy login lub hasło");
             }
@@ -34,9 +34,9 @@ namespace HelpdeskWebAPI.Controllers
             return Ok(new
             {
                 Wiadomosc = "Zalogowano pomyślnie!",
-                Imie = pracownik.Imie,
-                Nazwisko = pracownik.Nazwisko,
-                Rola = _context.Role.FirstOrDefault(r => r.Id == pracownik.IdRoli).Nazwa
+                Imie = pracownik.Name,
+                Nazwisko = pracownik.LastName,
+                Rola = _context.Positions.FirstOrDefault(r => r.Id == pracownik.PositionId).Name
             });
 
         }

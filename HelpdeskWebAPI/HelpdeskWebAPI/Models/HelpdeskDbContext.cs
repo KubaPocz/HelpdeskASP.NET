@@ -5,10 +5,10 @@ namespace HelpdeskWebAPI.Models;
 public class HelpdeskDbContext : DbContext
 {
     public HelpdeskDbContext(DbContextOptions<HelpdeskDbContext> options) : base(options) { }
-    public DbSet<Kategoria> Kategorie { get; set; }
-    public DbSet<Pracownik> Pracownicy { get; set; }
-    public DbSet<Priorytet> Priorytety { get; set; }
-    public DbSet<Rola> Role { get; set; }
-    public DbSet<Status> Statusy { get; set; }
-    public DbSet<Zgloszenie> Zgloszenia { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Worker> Workers { get; set; }
+    public DbSet<Priority> Priorities { get; set; }
+    public DbSet<Position> Positions { get; set; }
+    public DbSet<State> States { get; set; }
+    public DbSet<Report> Reports { get; set; }
 }

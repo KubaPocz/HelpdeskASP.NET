@@ -1,0 +1,160 @@
+﻿<Page
+    x:Class="HelpdeskZgloszenia.Pages.Admin.Dashboard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:HelpdeskZgloszenia.Pages.Admin"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Dashboard"
+    d:DesignHeight="650"
+    d:DesignWidth="640"
+    mc:Ignorable="d">
+
+    <StackPanel Background="#f0f0f0" Orientation="Vertical">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Viewbox
+                Grid.Column="0"
+                Width="40"
+                Height="40"
+                Margin="10"
+                VerticalAlignment="Center">
+                <Path Data="{StaticResource dashboard}" Fill="#0A7BFF" />
+            </Viewbox>
+            <TextBlock
+                Grid.Column="1"
+                Padding="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="45"
+                FontWeight="Bold"
+                Foreground="#0A7BFF"
+                Text="Dashboard" />
+        </Grid>
+        <Border
+            x:Name="NewReport"
+            BorderBrush="#e2e2e2"
+            BorderThickness="1"
+            Visibility="Collapsed">
+            <Button
+                x:Name="BtnNewReport"
+                Grid.Column="1"
+                Height="25"
+                HorizontalContentAlignment="Left"
+                Background="#FFC64A"
+                BorderThickness="0"
+                Content="Nowe Zgłoszenie!"
+                FontWeight="Bold" />
+        </Border>
+        <StackPanel Margin="20" Orientation="Vertical">
+            <UniformGrid Rows="1">
+                <Border
+                    Margin="15,0"
+                    Padding="30,15"
+                    Background="#fafafa"
+                    BorderBrush="#e0e0e0"
+                    BorderThickness="1"
+                    CornerRadius="35">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Viewbox
+                            Grid.Row="0"
+                            MaxHeight="100"
+                            Margin="5"
+                            Stretch="Uniform">
+                            <TextBlock
+                                FontSize="15"
+                                FontWeight="Bold"
+                                Text="Workers Count" />
+                        </Viewbox>
+                        <Viewbox
+                            Grid.Row="1"
+                            MaxHeight="80"
+                            Stretch="Uniform">
+                            <TextBlock
+                                x:Name="TxtWorkersCount"
+                                FontWeight="bold"
+                                Foreground="Orange"
+                                Text="7" />
+                        </Viewbox>
+                    </Grid>
+                </Border>
+                <Border
+                    Margin="15,0"
+                    Padding="30,15"
+                    Background="#fafafa"
+                    BorderBrush="#e0e0e0"
+                    BorderThickness="1"
+                    CornerRadius="35">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Viewbox
+                            Grid.Row="0"
+                            MaxHeight="100"
+                            Margin="5"
+                            Stretch="Uniform">
+                            <TextBlock
+                                FontSize="15"
+                                FontWeight="Bold"
+                                Text="Reports Count" />
+                        </Viewbox>
+                        <Viewbox
+                            Grid.Row="1"
+                            MaxHeight="80"
+                            Stretch="Uniform">
+                            <TextBlock
+                                x:Name="TxtReportsCount"
+                                FontWeight="bold"
+                                Foreground="Purple"
+                                Text="15" />
+                        </Viewbox>
+                    </Grid>
+                </Border>
+                <Border
+                    Margin="15,0"
+                    Padding="30,15"
+                    Background="#fafafa"
+                    BorderBrush="#e0e0e0"
+                    BorderThickness="1"
+                    CornerRadius="35">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Viewbox
+                            Grid.Row="0"
+                            MaxHeight="100"
+                            Margin="5"
+                            Stretch="Uniform">
+                            <TextBlock
+                                FontSize="15"
+                                FontWeight="Bold"
+                                Text="Last Report" />
+                        </Viewbox>
+                        <Viewbox
+                            Grid.Row="1"
+                            MaxHeight="80"
+                            Stretch="Uniform">
+                            <TextBlock
+                                x:Name="TxtLastReport"
+                                FontWeight="bold"
+                                Foreground="ForestGreen"
+                                Text="3h" />
+                        </Viewbox>
+                    </Grid>
+                </Border>
+            </UniformGrid>
+        </StackPanel>
+
+    </StackPanel>
+</Page>
