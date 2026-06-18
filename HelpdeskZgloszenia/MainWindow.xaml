@@ -5,87 +5,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:HelpdeskZgloszenia"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="HelpDesk"
     Width="850"
     Height="650"
-    mc:Ignorable="d">
-    <Grid Background="#0A7BFF">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="2.5*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <StackPanel
-            Grid.Column="1"
-            Width="auto"
-            Margin="10,40,10,40"
-            Orientation="Vertical">
-            <TextBlock
-                Margin="0,15,0,15"
-                HorizontalAlignment="Center"
-                FontSize="45"
-                FontWeight="Bold"
-                Foreground="White"
-                Text="Zgłoszenia Helpdesk" />
-            <Border
-                Grid.Column="1"
-                Margin="10"
-                Background="White"
-                BorderBrush="#e0e0e0"
-                BorderThickness="1"
-                CornerRadius="10">
-                <StackPanel>
-                    <StackPanel Margin="10">
-                        <TextBlock
-                            Margin="0,15"
-                            HorizontalAlignment="Center"
-                            FontSize="22"
-                            Text="Zaloguj się, aby zgłosić problem" />
-                        <StackPanel Margin="10,0">
-                            <TextBlock FontSize="15" Text="Login" />
-                            <TextBox
-                                x:Name="TxtLogin"
-                                Margin="5"
-                                Padding="3"
-                                FontSize="15"
-                                ToolTip="Wpisz swój login" />
-                        </StackPanel>
-                        <StackPanel Margin="10,0">
-                            <TextBlock FontSize="15" Text="Hasło" />
-                            <PasswordBox
-                                x:Name="TxtHaslo"
-                                Margin="5"
-                                Padding="3"
-                                FontSize="15"
-                                ToolTip="Wpisz swoje hasło" />
-                        </StackPanel>
-
-                        <Button
-                            Width="80"
-                            Margin="0,10"
-                            Padding="5"
-                            VerticalAlignment="Center"
-                            Background="#0A7BFF"
-                            BorderThickness="0"
-                            Click="BtnLogin_Click"
-                            Content="Login"
-                            Cursor="Hand"
-                            FontSize="20"
-                            Foreground="White" />
-                    </StackPanel>
-                    <Border Background="#e0e0e0" CornerRadius="0,0,10,10">
-                        <Button
-                            Width="115"
-                            Margin="0,5"
-                            Background="#00000000"
-                            BorderThickness="0"
-                            Content="Zapomniałem hasła"
-                            FontWeight="Bold"
-                            Foreground="RoyalBlue" />
-                    </Border>
-                </StackPanel>
-
-            </Border>
-        </StackPanel>
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Frame
+            Name="MainFrame"
+            NavigationUIVisibility="Hidden"
+            Source="Pages/LoginPage.xaml" />
     </Grid>
 </Window>

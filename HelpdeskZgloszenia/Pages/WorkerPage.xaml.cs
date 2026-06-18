@@ -1,8 +1,6 @@
-﻿using HelpdeskZgloszenia.Models;
-using System.Net.Http;
-using System.Net.Http.Json;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,14 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HelpdeskZgloszenia
+namespace HelpdeskZgloszenia.Pages
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Logika interakcji dla klasy WorkerPage.xaml
+    /// </summary>
+    public partial class WorkerPage : Page
     {
-        public MainWindow()
+        public WorkerPage()
         {
             InitializeComponent();
         }
-
     }
 }
