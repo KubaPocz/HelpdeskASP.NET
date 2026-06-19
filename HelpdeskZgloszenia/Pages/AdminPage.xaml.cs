@@ -1,18 +1,11 @@
 ﻿using HelpdeskReports.Models;
 using HelpdeskZgloszenia.Pages.Admin;
-using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace HelpdeskZgloszenia.Pages
 {
@@ -23,14 +16,22 @@ namespace HelpdeskZgloszenia.Pages
     {
         public static readonly HttpClient _httpClient = new HttpClient();
         private  readonly AdminData _adminData;
-        public AdminPage()
-        {
-            InitializeComponent();
-        }
+        public DispatcherTimer _globalTimer;
+        public static event Action? OnTimeChanged;
 
+        public static List<Report> reports = new List<Report>();
+        public static List<Worker> workers = new List<Worker>();
         public AdminPage(AdminData adminData)
         {
             _adminData = adminData;
+            _globalTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+            _globalTimer.Tick += (s, e) =>
+            {
+                string time = DateTime.Now.ToString("HH:mm");
+                OnTimeChanged?.Invoke();
+            };
+            _globalTimer.Start();
+
             InitializeComponent();
             LoadAdminData();
         }

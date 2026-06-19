@@ -23,29 +23,18 @@ namespace HelpdeskZgloszenia.Pages.Admin
         {
             InitializeComponent();
             LoadReports();
+
+            UpdateClock();
+            AdminPage.OnTimeChanged += UpdateClock;
+            this.Unloaded += (s, e) => AdminPage.OnTimeChanged -= UpdateClock;
         }
-        public async void LoadReports()
+        public void LoadReports()
         {
-            try
-            {
-                string url = "https://localhost:7171/api/admin/reports/get";
-                HttpResponseMessage response = await AdminPage._httpClient.GetAsync(url);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string jsonResult = await response.Content.ReadAsStringAsync();
-
-                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-                    List<Report> reports = JsonSerializer.Deserialize<List<Report>>(jsonResult,options);
-
-                    GridReports.ItemsSource = reports;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            GridReports.ItemsSource = AdminPage.reports;
+        }
+        private void UpdateClock()
+        {
+            TxtClock.Text = DateTime.Now.ToString("HH:mm");
         }
     }
 }

@@ -15,12 +15,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <Viewbox
                 Grid.Column="0"
                 Width="40"
                 Height="40"
-                Margin="10"
+                Margin="20,10"
                 VerticalAlignment="Center">
                 <Path Data="{StaticResource stats}" Fill="#0A7BFF" />
             </Viewbox>
@@ -33,6 +34,16 @@
                 FontWeight="Bold"
                 Foreground="#0A7BFF"
                 Text="Statistics" />
+            <TextBlock
+                x:Name="TxtClock"
+                Grid.Column="2"
+                Padding="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="25"
+                FontWeight="Bold"
+                Foreground="#0A7BFF"
+                Text="00:00" />
         </Grid>
     </StackPanel>
 </Page>

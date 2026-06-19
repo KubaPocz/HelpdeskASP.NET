@@ -33,10 +33,13 @@ public partial class LoginPage : Page
         {
             var wynik = await odpowiedz.Content.ReadFromJsonAsync<LoginResponse>();
 
-            if (wynik.Rola == "Informatyk")
-                NavigationService.Navigate(new AdminPage(new AdminData { Name = wynik.Imie, LastName = wynik.Nazwisko }));
-            else
-                NavigationService.Navigate(new WorkerPage());
+            if (wynik != null)
+            {
+                if (wynik.Rola == "Informatyk")
+                    NavigationService.Navigate(new AdminPage(new AdminData { Name = wynik.Imie, LastName = wynik.Nazwisko }));
+                else
+                    NavigationService.Navigate(new WorkerPage());
+            }
         }
         else
         {

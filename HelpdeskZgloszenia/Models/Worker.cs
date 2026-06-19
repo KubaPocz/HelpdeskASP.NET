@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HelpdeskReports.Models;
 
-internal class Worker
+public class Worker
 {
     public int Id { get; set; }
     public string Name { get; set; } = string.Empty;

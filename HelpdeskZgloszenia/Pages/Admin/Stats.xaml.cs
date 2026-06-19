@@ -21,6 +21,14 @@ namespace HelpdeskZgloszenia.Pages.Admin
         public Stats()
         {
             InitializeComponent();
+
+            UpdateClock();
+            AdminPage.OnTimeChanged += UpdateClock;
+            this.Unloaded += (s, e) => AdminPage.OnTimeChanged -= UpdateClock;
+        }
+        private void UpdateClock()
+        {
+            TxtClock.Text = DateTime.Now.ToString("HH:mm");
         }
     }
 }

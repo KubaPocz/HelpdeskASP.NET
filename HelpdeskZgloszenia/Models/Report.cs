@@ -1,6 +1,6 @@
 ﻿namespace HelpdeskReports.Models;
 
-internal class Report
+public class Report
 {
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;

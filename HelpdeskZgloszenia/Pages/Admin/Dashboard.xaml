@@ -15,12 +15,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <Viewbox
                 Grid.Column="0"
                 Width="40"
                 Height="40"
-                Margin="10"
+                Margin="20,10"
                 VerticalAlignment="Center">
                 <Path Data="{StaticResource dashboard}" Fill="#0A7BFF" />
             </Viewbox>
@@ -33,21 +34,76 @@
                 FontWeight="Bold"
                 Foreground="#0A7BFF"
                 Text="Dashboard" />
+            <TextBlock
+                x:Name="TxtClock"
+                Grid.Column="2"
+                Padding="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="25"
+                FontWeight="Bold"
+                Foreground="#0A7BFF"
+                Text="00:00" />
         </Grid>
         <Border
-            x:Name="NewReport"
-            BorderBrush="#e2e2e2"
+            x:Name="NewReportNotification"
+            Margin="30,0"
+            Padding="30,15"
+            Background="DarkOrange"
+            BorderBrush="Chocolate"
             BorderThickness="1"
-            Visibility="Collapsed">
-            <Button
-                x:Name="BtnNewReport"
-                Grid.Column="1"
-                Height="25"
-                HorizontalContentAlignment="Left"
-                Background="#FFC64A"
-                BorderThickness="0"
-                Content="Nowe Zgłoszenie!"
-                FontWeight="Bold" />
+            CornerRadius="35">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Direction="315"
+                    Opacity="0.12"
+                    ShadowDepth="4"
+                    Color="Black" />
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Viewbox
+                    Grid.Row="0"
+                    MaxHeight="15"
+                    Margin="5"
+                    HorizontalAlignment="Left"
+                    Stretch="Uniform">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox
+                            Width="20"
+                            Height="20"
+                            Margin="10,0"
+                            VerticalAlignment="Center">
+                            <Path Data="{StaticResource notification}" Fill="Black" />
+                        </Viewbox>
+                        <TextBlock
+                            Grid.Column="1"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            Text="Notification" />
+                    </Grid>
+
+                </Viewbox>
+                <Viewbox
+                    Grid.Row="1"
+                    MaxHeight="20"
+                    HorizontalAlignment="Left"
+                    Stretch="Uniform">
+                    <TextBlock
+                        x:Name="TxtNewReport"
+                        Margin="30,0"
+                        FontWeight="bold"
+                        Text="[13:49] New report by Agnieszka Radwańska " />
+                </Viewbox>
+            </Grid>
         </Border>
         <StackPanel Margin="20" Orientation="Vertical">
             <UniformGrid Rows="1">
@@ -58,6 +114,14 @@
                     BorderBrush="#e0e0e0"
                     BorderThickness="1"
                     CornerRadius="35">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Direction="315"
+                            Opacity="0.12"
+                            ShadowDepth="4"
+                            Color="Black" />
+                    </Border.Effect>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
@@ -92,6 +156,14 @@
                     BorderBrush="#e0e0e0"
                     BorderThickness="1"
                     CornerRadius="35">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Direction="315"
+                            Opacity="0.12"
+                            ShadowDepth="4"
+                            Color="Black" />
+                    </Border.Effect>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
@@ -126,6 +198,14 @@
                     BorderBrush="#e0e0e0"
                     BorderThickness="1"
                     CornerRadius="35">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            Direction="315"
+                            Opacity="0.12"
+                            ShadowDepth="4"
+                            Color="Black" />
+                    </Border.Effect>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />

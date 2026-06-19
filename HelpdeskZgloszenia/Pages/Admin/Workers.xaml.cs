@@ -22,30 +22,19 @@ namespace HelpdeskZgloszenia.Pages.Admin
         {
             InitializeComponent();
             LoadWorkers();
+
+            UpdateClock();
+            AdminPage.OnTimeChanged += UpdateClock;
+            this.Unloaded += (s, e) => AdminPage.OnTimeChanged -= UpdateClock;
         }
 
         public async void LoadWorkers()
         {
-            try
-            {
-                string url = "https://localhost:7171/api/admin/workers/get";
-                HttpResponseMessage response = await AdminPage._httpClient.GetAsync(url);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string jsonResult = await response.Content.ReadAsStringAsync();
-
-                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-                    List<Worker> reports = JsonSerializer.Deserialize<List<Worker>>(jsonResult, options);
-
-                    GridWorkers.ItemsSource = reports;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message,"Error",MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            GridWorkers.ItemsSource = AdminPage.workers;
+        }
+        private void UpdateClock()
+        {
+            TxtClock.Text = DateTime.Now.ToString("HH:mm");
         }
     }
 }
